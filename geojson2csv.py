@@ -2,7 +2,7 @@
 
 import json
 import csv
-with open("data.geojson") as f:
+with open("philly.geojson") as f:
     data = json.load(f)
 with open('data.csv', 'w') as csvfile:
     headers = list(data["features"][0]["properties"].keys()) + ["lat", "lng"]

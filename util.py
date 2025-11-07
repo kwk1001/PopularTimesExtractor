@@ -170,7 +170,6 @@ def extract_place(driver, features, name, link):
                         if am_pm_val.lower().startswith("p"): hour_val += 12
                     
                     # --- 更新 hour_prev (只在解析成功后) ---
-                    # 注意：这里不再需要 if hour_val < hour_prev 来增加 dow
                     hour_prev = hour_val 
 
                     # --- 存入数据 ---
@@ -181,9 +180,6 @@ def extract_place(driver, features, name, link):
                 except Exception as e:
                     print(f"  ❌ [调试] 内循环出错: {e}")
                     print(f"     -> 无法解析标签: {current_label}")
-
-        # 打印最终结果（可选）
-        # pprint_times(times)
 
     except NoSuchElementException:
         print("No popular times available")
